@@ -12,8 +12,11 @@
 </head>
 <body>
 
+    <!-- My ID Heading -->
+    <h1>22/EG/CO/1710</h1>
+
     <!-- Title -->
-    <h1 id="title">Original Title</h1>
+    <h2 id="title">Original Title</h2>
     <button onclick="changeTitle()">Change Title</button>
 
     <!-- Paragraph -->
@@ -38,36 +41,30 @@
     <div id="output"></div>
 
     <script>
-        // Change title
         function changeTitle() {
             document.getElementById("title").innerHTML = "New Title!";
         }
 
-        // Change paragraph color
         function changeColor() {
             document.getElementById("text").style.color = "red";
         }
 
-        // Add new list item
         function addItem() {
             let li = document.createElement("li");
             li.textContent = "New Item";
             document.getElementById("list").appendChild(li);
         }
 
-        // Toggle visibility using querySelector
         function toggleElement() {
             let element = document.querySelector(".toggleBox");
             element.classList.toggle("hidden");
         }
 
-        // Get input value and display it
         function displayName() {
             let name = document.getElementById("nameInput").value;
             document.getElementById("output").innerHTML = "Hello, " + name;
         }
 
-        // Error handling
         try {
             let fake = document.getElementById("doesNotExist");
             if (!fake) {
