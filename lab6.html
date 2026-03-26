@@ -3,14 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM Manipulation</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Title -->
     <h1 id="title">Original Title</h1>
     <button onclick="changeTitle()">Change Title</button>
+
+    <!-- Paragraph -->
+    <p id="text">This is a paragraph.</p>
+    <button onclick="changeColor()">Change Text Color</button>
+
+    <!-- List -->
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button onclick="addItem()">Add Item</button>
+
+    <!-- Toggle Element -->
+    <div class="toggleBox">This can be hidden</div>
+    <button onclick="toggleElement()">Toggle Visibility</button>
+
+    <!-- Form Input -->
+    <h3>Enter Your Name</h3>
+    <input type="text" id="nameInput">
+    <button onclick="displayName()">Submit</button>
+    <div id="output"></div>
+
     <script>
+        // Change title
         function changeTitle() {
             document.getElementById("title").innerHTML = "New Title!";
         }
+
+        // Change paragraph color
+        function changeColor() {
+            document.getElementById("text").style.color = "red";
+        }
+
+        // Add new list item
+        function addItem() {
+            let li = document.createElement("li");
+            li.textContent = "New Item";
+            document.getElementById("list").appendChild(li);
+        }
+
+        // Toggle visibility using querySelector
+        function toggleElement() {
+            let element = document.querySelector(".toggleBox");
+            element.classList.toggle("hidden");
+        }
+
+        // Get input value and display it
+        function displayName() {
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("output").innerHTML = "Hello, " + name;
+        }
+
+        // Error handling
+        try {
+            let fake = document.getElementById("doesNotExist");
+            if (!fake) {
+                throw "Element not found!";
+            }
+        } catch (error) {
+            console.log("Error:", error);
+        }
     </script>
+
 </body>
 </html>
